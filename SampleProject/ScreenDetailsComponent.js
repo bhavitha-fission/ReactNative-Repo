@@ -6,16 +6,23 @@ import {
     View,
     Button,
     StyleSheet,
-    Dimensions
-  
+    Dimensions,
+    TouchableOpacity
   } from 'react-native';
 
 export default class ScreenDetails extends Component {
       
-    static navigationOptions = {
-        drawerLabel: () => null,
-     };
-
+     static navigationOptions = {
+        headerRight: (
+            <TouchableOpacity style={{ marginRight: 10, marginTop: 5}}
+            onPress={console.log('hi')}>
+           <Image
+            style={{width:30, height:30}}
+            source={require('./more_vert.png')}
+        />
+         </TouchableOpacity>
+        ),
+     }   
      onClickButton = () => {
         alert('button clciked');        
      }
@@ -28,12 +35,7 @@ export default class ScreenDetails extends Component {
         console.log('image url is',imageURL);
        
         return (
-    <View>
-       
-        {/* <View style = {styles.header}>
-        <Text style={{fontWeight: 'bold',color: 'white', fontSize:16}}> Screen Details</Text>
-        </View> */}
-
+      <View>
          <View style={styles.imageView}>
          <Image style = {{width: Dimensions.get('window').width, height: 210}} source={{uri:imageURL}} />
          </View>
@@ -56,9 +58,9 @@ const styles = StyleSheet.create({
 
     imageView : {
         width: Dimensions.get('window').width,
-        height:210,
+        height:220,
         position: 'absolute',
-        top: 60,
+        top: 0,
         alignItems:'center',
         bottom: 0,
          
@@ -66,13 +68,13 @@ const styles = StyleSheet.create({
     textView : {
         width: Dimensions.get('window').width,
         height:200,
-        top:220,
+        top:215,
         alignItems:'center',
         backgroundColor :'white',
         justifyContent: 'center'
     },
     buttonContainer : {
-        top:225,
+        top:220,
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor :'white',

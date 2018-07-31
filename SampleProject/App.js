@@ -1,11 +1,37 @@
 import React, { Component } from 'react';
 import { StyleSheet} from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator,createDrawerNavigator } from 'react-navigation';
 import LoginComponent from './LoginComponent';
 import RegistrationComponent from './RegistrationComponent';
 import HomeComponent from './HomeComponent';
 import DrawerMenu from './DrawerMenu';
 import ScreenDetailsComponent from './ScreenDetailsComponent';
+import AboutUsComponent from './AboutUsComponent';
+import HorizontalScrollView from './HorizontalScrollView';
+
+
+// drawer navigator 
+const AppDrawer = createDrawerNavigator({
+
+  Home: {screen:HomeComponent},
+  About: {screen:AboutUsComponent},
+  Scroll:{screen:HorizontalScrollView},
+  Logout: {
+      screen: () => {
+          this.logout()
+          return(this.logout)
+      },
+  }   
+},{
+  drawerPosition: 'left',
+  drawerOpenRoute: 'DrawerOpen',
+  drawerCloseRoute: 'DrawerClose',
+  drawerToggleRoute: 'DrawerToggle',  
+  contentOptions: {
+      activeTintColor: 'red',
+  }
+})
+
 
 // Stack navigator
 const AppNavigator = createStackNavigator({
@@ -28,20 +54,17 @@ const AppNavigator = createStackNavigator({
     },
   },
   Menu : {
-    screen : DrawerMenu,
-    navigationOptions: {
-      title: "Home",
-      header:null
-    }
+   screen : AppDrawer,
+   navigationOptions: {
+     header:null
+   }
   },
-  Home : {
-    screen : HomeComponent,
+  ScreenDetails :{
+    screen : ScreenDetailsComponent,
     navigationOptions: {
-      title: "Home",
-      gesturesEnabled: false, 
-      header:null
+      title: "ScreenDetails",
     },
-  },
+  }
  },
 {
   navigationOptions: {
@@ -55,6 +78,7 @@ const AppNavigator = createStackNavigator({
 },
 },
 );
+
 
 export default class App extends React.Component {
   constructor(props) {

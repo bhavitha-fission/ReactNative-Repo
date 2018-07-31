@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Text,View, Image, TouchableHighlight,Dimensions
+    Text,View, Image, TouchableOpacity,Dimensions
 } from 'react-native';
 
 export default class HeaderComponent extends Component {
@@ -15,16 +15,15 @@ export default class HeaderComponent extends Component {
             backgroundColor :'#9370DB',
                 
         }}>
-            <TouchableHighlight style={{ marginLeft: 10, marginTop: 20}}
+            <TouchableOpacity style={{ marginLeft: 10, marginTop: 20}}
                 onPress={() => {
-                    this.props.navigation.openDrawer();
-                   
+                    this.props.navigation.openDrawer();                 
                 }}>
                 <Image
-                    style={{ width: 25, height: 25 }}
-                    source={{uri : 'https://reactnativecode.com/wp-content/uploads/2018/04/hamburger_icon.png'}}
+                    style={{ width: 30, height: 30}}
+                    source={require('./menuIcon.png')}
                 />
-            </TouchableHighlight>
+            </TouchableOpacity>
         </View>);
     }
 }

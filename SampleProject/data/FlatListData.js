@@ -10,7 +10,7 @@ const flatListData = [
         "key": "598a684f78fee204ee51cd2f",
         "name": "Fresh mushroom",        
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Lactarius_indigo_48568.jpg",    
-        "foodDescription": "Fresh mushroom with vegetables. This is a long line, this is a long line, this is a long line,this is a long line,this is a long line"
+        "foodDescription": "Fresh mushroom with vegetables"
     },
     {
         "key": "598a687678fee204ee51cd30",
@@ -40,7 +40,7 @@ const flatListData = [
         "key": "598a67c478fee204ee51cd2d",
         "name": "traditional japanese salad",  
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Simple_somen.jpg",      
-        "foodDescription": "Very delicious Japanese Salad"
+        "foodDescription": "Very delicious traditional japanese sala "
     }
 ];
 

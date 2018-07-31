@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import {
-    Text, View, Image, TouchableHighlight,FlatList,StyleSheet,Button,Alert
+    Text, View, Image,FlatList,StyleSheet,TouchableOpacity
 } from 'react-native'; 
-import AboutUsComponent from './AboutUsComponent';
-import HorizontalScrollView from './HorizontalScrollView';
 import HeaderComponent from './HeaderComponent';
 import FlatListData from './data/FlatListData';
 
-
-export default class HomeComponent extends Component {
+export default class HomeComponent extends Component {  
+    
     constructor(props) {
         super(props);
         this.nextScreen = this.nextScreen.bind(this);
     }
-
-
   nextScreen(item) {
     debugger 
     this.props.navigation.navigate('ScreenDetails',{"imageURL":item.imageUrl,"name":item.name})
@@ -26,8 +22,7 @@ export default class HomeComponent extends Component {
             flex: 1,
             flexDirection: 'column',
             
-        }}>  
-       
+        }}>         
       <View style={{
                 flex: 1,
 
@@ -67,23 +62,38 @@ class FlatListItem extends Component {
                 <View style={{
                         flex: 1,
                         flexDirection:'row',                
-                        backgroundColor: '#FEFEFE'
+                        backgroundColor: '#FEFEFE',
+                                   
                 }}>            
                     <Image 
                         source={{uri: this.props.item.imageUrl}}
-                        style={{width: 100, height: 100, margin: 5}}
+                        style={{width:100, height: 100,flex:1,margin:5
+                        }}
+                        resizeMode="contain"           
                     >
                     </Image>
                     <View style={{
-                            flex: 1,
-                            flexDirection:'column',   
-                            height: 100,                
+                            flex: 1.5,
+                            flexDirection:'column',               
                         }}>            
                             <Text style={styles.titleAttributes}>{this.props.item.name}</Text>
                             <Text style={styles.subTitleAttributes}>{this.props.item.foodDescription}</Text>       
                     </View> 
-                    <Button title = "next" color = '#696969' onPress = {this.next}>
-                    </Button> 
+    
+            <TouchableOpacity style={{ marginRight: 10,justifyContent:'center'}}
+            onPress={console.log('hi')}>
+           <Image
+            style={{width:30, height:30}}
+            source={require('./more_vert_black.png')}
+        />
+         </TouchableOpacity>
+                    <TouchableOpacity style={{ marginRight: 10, justifyContent:'center'}}
+                    onPress={this.next}>
+                   <Image
+                    style={styles.navigateNext}
+                    source={require('./navigate_next.png')}
+                />
+                 </TouchableOpacity>                   
                 </View>            
               
                 <View style={{
@@ -108,8 +118,9 @@ const styles = StyleSheet.create({
         padding: 5,
         fontSize: 16,
     },
-    button:{
-
+    navigateNext:{
+      width : 30,
+      height :30
     }
 });
 

@@ -61,9 +61,9 @@ class LoginComponent extends Component {
  
   // login functionality
 async login(username, password) {
-
+  this.props.navigation.navigate('Menu')
   // validation
-    if(username == '' && password == '') {
+  /*  if(username == '' && password == '') {
       Alert.alert('please enter username and password')
       return
     }
@@ -89,7 +89,7 @@ async login(username, password) {
     
     }*/
 
-  function getAsyncUserData() {
+  /*function getAsyncUserData() {
       let getUsers
       return new Promise((resolve,reject)=>{
         AsyncStorage.getItem('userObject')
@@ -119,7 +119,7 @@ async login(username, password) {
       // login failure
       this.ShowHideActivityIndicator()
       alert('user not found')
-    }
+    }*/
     
 
 }
@@ -155,7 +155,7 @@ async login(username, password) {
         title = 'Sign in'
         color="#841584"
          onPress= {   
-          ( ) => this.login(this.state.email,this.state.password)}
+          ( ) => this.login("test@gmail.com","test")}
          /> 
         <Button styles ={styles.signUpButton}
         title = 'Sign up'
