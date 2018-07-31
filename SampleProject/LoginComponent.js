@@ -1,31 +1,15 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
-  Text,
   Image,
   View,
   Button,
-  Alert,
   TextInput,
   ActivityIndicator,
   YellowBox,
-  AsyncStorage,
-  TouchableHighlight
-
 } from 'react-native';
-
-import {
-  createStackNavigator,
-} from 'react-navigation';
-
-import HomeComponent from './HomeComponent';
-import HorizontalScrollView from './HorizontalScrollView'
-import RegistrationComponent from './RegistrationComponent'
-import DrawerMenu from './DrawerMenu';
 import { connect } from 'react-redux';
 import {saveUsers} from './actions';
-
 
 class LoginComponent extends Component {
 
@@ -151,20 +135,25 @@ async login(username, password) {
           {
           this.state.isLoading ?  <ActivityIndicator style={{padding: 40}} /> : null
           }
-        <Button
+        
+         <View style = {styles.signInButton}>
+        <Button 
         title = 'Sign in'
-        color="#841584"
+        color="white"
          onPress= {   
           ( ) => this.login("test@gmail.com","test")}
          /> 
-        <Button styles ={styles.signUpButton}
-        title = 'Sign up'
+         </View>
+  
+        <Button 
+        title = 'Dont have an account? Sign up'      
+        color="black" 
         onPress = {
           () => this.signUp()
         }
-         />  
-
-        </View>
+         />         
+</View>
+     
       );
     }
   }
@@ -178,7 +167,7 @@ async login(username, password) {
     },
     canvas: {
       position: 'absolute',
-      top: 60,
+      top: 80,
       alignItems:'center',
       bottom: 0, 
       width:100,
@@ -193,13 +182,11 @@ async login(username, password) {
       height: 40,
       width: 300,
       borderColor: 'gray',
-      borderWidth: 1
+      borderWidth: 1.5
    },
-   signUpButton: {
-    position: 'absolute',
-    bottom:0,
-    left:0,
-    width : 60
+   signInButton: {
+    backgroundColor:'#9370DB',width:120,borderRadius:60,height:40
+    
     },
   });
 

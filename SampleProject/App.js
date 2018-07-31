@@ -39,7 +39,7 @@ const AppNavigator = createStackNavigator({
   Login: {
     screen: LoginComponent,
     navigationOptions: {
-      title: "login",
+      title: "Login",
       headerLeft: null,
       gesturesEnabled: false, 
     
