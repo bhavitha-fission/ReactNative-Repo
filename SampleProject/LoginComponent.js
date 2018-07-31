@@ -134,7 +134,7 @@ async login(username, password) {
        
         <View style={styles.container}>  
        
-          <Image source={require('./splash_logo.png')} style={styles.canvas} />
+          <Image source={require('./user.png')} style={styles.canvas} resizeMode =  'stretch'/>
           <TextInput 
           style={styles.input}
           placeholder = "Enter user name"
@@ -173,16 +173,20 @@ async login(username, password) {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+      backgroundColor: 'white',
       paddingTop: 23
     },
     canvas: {
       position: 'absolute',
-      top: 20,
+      top: 60,
       alignItems:'center',
       bottom: 0, 
-      width:160,
-      height:160,
+      width:100,
+      height:100,
+      borderRadius:50,
+     borderWidth:2,
+     borderColor:'black'
+    
     },
     input: {
       margin: 15,
