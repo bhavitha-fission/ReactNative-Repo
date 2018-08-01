@@ -69,26 +69,18 @@ class FlatListItem extends Component {
                     <Image
                         source={{ uri: this.props.item.imageUrl }}
                         style={{
-                            width: 100, height: 100, flex: 1, margin: 5
+                            width: 100, height: 100, flex:1, margin: 5
                         }}
                         resizeMode="contain"
                     >
                     </Image>
                     <View style={{
-                        flex: 1.5,
+                        flex: 2,
                         flexDirection: 'column',
                     }}>
                         <Text style={styles.titleAttributes}>{this.props.item.name}</Text>
                         <Text style={styles.subTitleAttributes}>{this.props.item.foodDescription}</Text>
                     </View>
-
-                    <TouchableOpacity style={{ marginRight: 10, justifyContent: 'center' }}
-                        onPress={console.log('hi')}>
-                        <Image
-                            style={{ width: 30, height: 30 }}
-                            source={require('./more_vert_black.png')}
-                        />
-                    </TouchableOpacity>
                     <TouchableOpacity style={{ marginRight: 10, justifyContent: 'center' }}
                         onPress={this.next}>
                         <Image
