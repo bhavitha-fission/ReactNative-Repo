@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet} from 'react-native';
+import { StyleSheet,TouchableOpacity,Image} from 'react-native';
 import { createStackNavigator,createDrawerNavigator } from 'react-navigation';
 import LoginComponent from './LoginComponent';
 import RegistrationComponent from './RegistrationComponent';
@@ -8,30 +8,27 @@ import DrawerMenu from './DrawerMenu';
 import ScreenDetailsComponent from './ScreenDetailsComponent';
 import AboutUsComponent from './AboutUsComponent';
 import HorizontalScrollView from './HorizontalScrollView';
+import LogoutComponent from './LogoutComponent';
+
 
 
 // drawer navigator 
+
 const AppDrawer = createDrawerNavigator({
 
   Home: {screen:HomeComponent},
   About: {screen:AboutUsComponent},
   Scroll:{screen:HorizontalScrollView},
-  Logout: {
-      screen: () => {
-          this.logout()
-          return(this.logout)
-      },
-  }   
+  Logout: {screen: LogoutComponent}   
 },{
   drawerPosition: 'left',
   drawerOpenRoute: 'DrawerOpen',
   drawerCloseRoute: 'DrawerClose',
-  drawerToggleRoute: 'DrawerToggle',  
+  drawerToggleRoute: 'DrawerToggle', 
   contentOptions: {
-      activeTintColor: 'red',
+      activeTintColor: '#9370DB',
   }
 })
-
 
 // Stack navigator
 const AppNavigator = createStackNavigator({
@@ -49,14 +46,13 @@ const AppNavigator = createStackNavigator({
     screen: RegistrationComponent,
     navigationOptions: {
       title: "Registration",
-      headerLeft: null,
       gesturesEnabled: false, 
     },
   },
   Menu : {
    screen : AppDrawer,
    navigationOptions: {
-     header:null
+     header:null,
    }
   },
   ScreenDetails :{
@@ -83,6 +79,12 @@ const AppNavigator = createStackNavigator({
 export default class App extends React.Component {
   constructor(props) {
     super(props)
+    this.logout = this.logout.bind(this);
+
+}
+logout = () => { 
+   
+  this.props.navigation.navigate('Login')
 }
   render() {   
     return (

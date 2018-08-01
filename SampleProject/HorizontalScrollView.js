@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 import {
     AppRegistry,
@@ -18,88 +18,86 @@ export default class HorizontalScrollView extends Component {
 
     static navigationOptions = ({ navigation }) => {
         let drawerLabel = 'Scroll';
-        return {drawerLabel};
+        return { drawerLabel };
     }
     render() {
 
-        return(
-           <View style = {styles.container}> 
-          <HeaderComponent {...this.props} />
-            <ScrollView
-            pagingEnabled = {true}
-            horizontal = {true}
-            showsHorizontalScrollIndicator ={true}>
-              
-         
-             <View style = {styles.first}>
-             <Image source={require('./laugh.jpg')} style={styles.image} />
-             </View>
+        return (
+            <View style={styles.container}>
+           <HeaderComponent {...this.props} /> 
+                <ScrollView
+                    pagingEnabled={true}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={true}>
+                    <View style={styles.first}>
+                        <Image source={require('./laugh.jpg')} style={styles.image} />
+                    </View>
 
-            <View style = {styles.second}>
-            <Image source={require('./smile.jpg')} style={styles.image} />
+                    <View style={styles.second}>
+                        <Image source={require('./smile.jpg')} style={styles.image} />
+                    </View>
+
+                    <View style={styles.third}>
+                        <Image source={require('./lol.jpg')} style={styles.image} />
+                    </View>
+
+                    <View style={styles.fourth}>
+                        <Image source={require('./flower.jpg')} style={styles.image} />
+                    </View>
+
+                </ScrollView>
             </View>
-
-              <View style = {styles.third}>
-              <Image source={require('./lol.jpg')} style={styles.image} />
-              </View>
-
-            <View style = {styles.fourth}>
-            <Image source={require('./flower.jpg')} style={styles.image} />
-            </View>
-
-             </ScrollView>
-             </View>
         )
     }
 }
 
-const styles = StyleSheet.create({   
-    container : {
+const styles = StyleSheet.create({
+    container: {
         flex: 1
-     },
-    first:{
+    },
+    first: {
         backgroundColor: '#5f9ea0',
-        flex:1,
-        marginTop : 0,
-        alignItems : 'center',
-        justifyContent :'center',
-        width : screenWidth
+        flex: 1,
+        marginTop: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: screenWidth
     },
 
-    second:{
+    second: {
         backgroundColor: '#FF00FF',
-        flex:1,
-        marginTop : 10,
-        alignItems : 'center',
-        justifyContent :'center',
-        width : screenWidth
+        flex: 1,
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: screenWidth
 
     },
 
-    third:{
+    third: {
         backgroundColor: '#8a2be2',
-        flex:1,
-        marginTop : 10,
-        alignItems : 'center',
-        justifyContent :'center',
-        width : screenWidth
+        flex: 1,
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: screenWidth
 
     },
 
-    fourth:{
+    fourth: {
         backgroundColor: '#663399',
-        flex:1,
-        marginTop : 10,
-        alignItems : 'center',
-        justifyContent :'center',
-        width : screenWidth
+        flex: 1,
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: screenWidth
 
     },
 
     image: {
         position: 'absolute',
-        alignItems:'center',
-        width:200,
-        height:200,
-      },
+        alignItems: 'center',
+        width: 200,
+        height: 200,
+    },
 });

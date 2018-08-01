@@ -2,22 +2,23 @@ import React, { Component } from 'react';
 import {
     Text, View, Image, TouchableHighlight
 } from 'react-native';
- 
+
 import HeaderComponent from './HeaderComponent';
 
 const backgroundColor = '#0067a7';
 
 export default class AboutUsComponent extends Component {
+
     static navigationOptions = ({ navigation }) => {
         let drawerLabel = 'About us';
-        return {drawerLabel};
+        return { drawerLabel };
     }
     render() {
         return (<View style={{
             flex: 1,
             flexDirection: 'column',
-        }}>      
-         <HeaderComponent {...this.props} /> 
+        }}>
+            <HeaderComponent {...this.props} />
             <View style={{
                 flex: 1,
                 backgroundColor: backgroundColor,
