@@ -4,7 +4,7 @@ import { createStackNavigator,createDrawerNavigator } from 'react-navigation';
 import LoginComponent from './LoginComponent';
 import RegistrationComponent from './RegistrationComponent';
 import HomeComponent from './HomeComponent';
-import DrawerMenu from './DrawerMenu';
+import ProfileComponent from './ProfileComponent';
 import ScreenDetailsComponent from './ScreenDetailsComponent';
 import AboutUsComponent from './AboutUsComponent';
 import HorizontalScrollView from './HorizontalScrollView';
@@ -17,6 +17,7 @@ import LogoutComponent from './LogoutComponent';
 const AppDrawer = createDrawerNavigator({
 
   Home: {screen:HomeComponent},
+  Profile:{screen:ProfileComponent},
   About: {screen:AboutUsComponent},
   Scroll:{screen:HorizontalScrollView},
   Logout: {screen: LogoutComponent}   

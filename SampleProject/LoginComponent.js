@@ -121,6 +121,7 @@ class LoginComponent extends Component {
           style={styles.input}
           placeholder="Enter user name"
           returnKeyType="next"
+          underlineColorAndroid="transparent"
           onChangeText={(text) => this.setState({ email: text })}
         />
         <TextInput
@@ -128,6 +129,7 @@ class LoginComponent extends Component {
           placeholder="Enter password"
           secureTextEntry
           returnKeyType="next"
+          underlineColorAndroid="transparent"
           onChangeText={(text) => this.setState({ password: text })}
         />
         {
