@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'white',
-        height: 200
+        height: 230
     },
     header: {
         height: 60,

@@ -11,6 +11,7 @@
     "native-base": "^2.5.2",
     "react": "16.3.1",
     "react-native": "0.55.3",
+    "react-native-image-picker": "^0.26.10",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.3.1",
     "react-redux": "^5.0.7",

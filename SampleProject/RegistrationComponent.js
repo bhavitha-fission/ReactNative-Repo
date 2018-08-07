@@ -49,7 +49,7 @@ class RegistrationComponent extends Component {
         console.log('username: ', value.username);
         console.log('email: ', value.email);
         console.log('registeredUsers array is', this.state.registeredUsers)
-        this.props.saveusers({ username: value.email, password: value.password });
+        this.props.saveusers({ username: value.username,email:value.email,password: value.password });
         alert('user registered successfully')
         this.props.navigation.navigate('Login')
       }

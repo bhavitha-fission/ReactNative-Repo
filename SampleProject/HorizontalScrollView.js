@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     second: {
         backgroundColor: '#FF00FF',
         flex: 1,
-        marginTop: 10,
+        marginTop: 0,
         alignItems: 'center',
         justifyContent: 'center',
         width: screenWidth
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     third: {
         backgroundColor: '#8a2be2',
         flex: 1,
-        marginTop: 10,
+        marginTop: 0,
         alignItems: 'center',
         justifyContent: 'center',
         width: screenWidth
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fourth: {
         backgroundColor: '#663399',
         flex: 1,
-        marginTop: 10,
+        marginTop: 0,
         alignItems: 'center',
         justifyContent: 'center',
         width: screenWidth
