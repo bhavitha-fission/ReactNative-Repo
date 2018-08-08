@@ -140,7 +140,7 @@ class LoginComponent extends Component {
             title='Sign in'
             color="white"
             onPress={
-              () => this.login(this.state.email, this.state.password)}
+              () => this.login('T@gmail.com', 't')}
           />
         </View>
 
