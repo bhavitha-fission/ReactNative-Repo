@@ -10,8 +10,6 @@ import AboutUsComponent from './AboutUsComponent';
 import HorizontalScrollView from './HorizontalScrollView';
 import LogoutComponent from './LogoutComponent';
 
-
-
 // drawer navigator 
 
 const AppDrawer = createDrawerNavigator({
