@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { saveUsers } from './actions';
-import { Item } from 'native-base';
+
 
 class LoginComponent extends Component {
 
@@ -140,7 +140,7 @@ class LoginComponent extends Component {
             title='Sign in'
             color="white"
             onPress={
-              () => this.login('T@gmail.com', 't')}
+              () => this.login(this.state.email, this.state.password)}
           />
         </View>
 

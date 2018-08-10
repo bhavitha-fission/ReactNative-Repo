@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet,TouchableOpacity,Image} from 'react-native';
-import { createStackNavigator,createDrawerNavigator } from 'react-navigation';
+import { StyleSheet,Image} from 'react-native';
+import { createStackNavigator,createDrawerNavigator,TabNavigator } from 'react-navigation';
 import LoginComponent from './LoginComponent';
 import RegistrationComponent from './RegistrationComponent';
 import HomeComponent from './HomeComponent';
@@ -10,11 +10,42 @@ import AboutUsComponent from './AboutUsComponent';
 import HorizontalScrollView from './HorizontalScrollView';
 import LogoutComponent from './LogoutComponent';
 
+
+
+// Tab navigator
+
+const TabNavigation=TabNavigator({
+  Home: {screen:HomeComponent,
+  navigationOptions:{
+    tabBarIcon :<Image source = {require('./home.png')}/>
+  }},
+  Profile:{screen:ProfileComponent,
+  navigationOptions:{
+    tabBarIcon : <Image source = {require('./profileIcon.png')}/>
+  }},
+  Scroll:{screen:HorizontalScrollView,
+  navigationOptions:{
+    tabBarIcon:<Image source = {require('./settings.png')}/>
+  }},
+},
+{
+
+   tabBarOptions: {
+    activeTintColor: '#9370DB',
+    inactiveTintColor: 'gray',
+    backgroundColor: '#9370DB',
+    showLabel: false,
+    style: {backgroundColor:'#9370DB'}
+  },
+  animatedEnable: false,
+  swipeEnable: false,
+});
+
 // drawer navigator 
 
 const AppDrawer = createDrawerNavigator({
 
-  Home: {screen:HomeComponent},
+  Home: {screen:TabNavigation},
   Profile:{screen:ProfileComponent},
   About: {screen:AboutUsComponent},
   Scroll:{screen:HorizontalScrollView},
@@ -54,6 +85,7 @@ const AppNavigator = createStackNavigator({
      header:null,
    }
   },
+  
   ScreenDetails :{
     screen : ScreenDetailsComponent,
     navigationOptions: {
