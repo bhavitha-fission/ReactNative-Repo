@@ -7,10 +7,11 @@ import {
   TextInput,
   ActivityIndicator,
   YellowBox,
-  AsyncStorage
+  AsyncStorage,Platform,Linking
 } from 'react-native';
 import { connect } from 'react-redux';
 import { saveUsers } from './actions';
+
 
 
 class LoginComponent extends Component {
@@ -32,7 +33,31 @@ class LoginComponent extends Component {
     ]);
   }
 
+ componentDidMount() {
 
+    if(Platform.OS === 'android') {
+      Linking.getInitialURL().then(url => {
+        this.navigate(url);
+      });
+    }
+    else {
+      Linking.addEventListener('url',this.handleOpenURL);
+    }
+  }
+
+ componentWillUnmount() {
+    Linking.removeEventListener('url',this.handleOpenURL);
+  }
+
+ handleOpenURL = (event) => {
+   this.navigate(event.url);
+ }
+
+
+ navigate = (url) => { 
+  const { navigate } = this.props.navigation;
+  navigate('Menu')
+}
   ShowHideActivityIndicator = () => {
 
     if (this.state.isLoading == true) {
