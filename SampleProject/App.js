@@ -9,7 +9,7 @@ import ScreenDetailsComponent from './ScreenDetailsComponent';
 import AboutUsComponent from './AboutUsComponent';
 import HorizontalScrollView from './HorizontalScrollView';
 import LogoutComponent from './LogoutComponent';
-
+import WeightIn from './WeightIn';
 
 
 // Tab navigator
@@ -23,7 +23,7 @@ const TabNavigation=TabNavigator({
   navigationOptions:{
     tabBarIcon : <Image source = {require('./profileIcon.png')}/>
   }},
-  Scroll:{screen:HorizontalScrollView,
+  WeightIn:{screen:WeightIn,
   navigationOptions:{
     tabBarIcon:<Image source = {require('./settings.png')}/>
   }},
