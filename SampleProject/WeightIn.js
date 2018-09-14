@@ -2,27 +2,26 @@ import React, { Component } from 'react';
 
 
   import {
-    TouchableHighlight,View,Text,StyleSheet
+    View,StyleSheet,Button
   } from 'react-native';
 
-export default class HambergerIcon extends Component {
+export default class WeightIn extends Component {
 
     constructor(props) {
         super(props)
+        this.showPopUp = this.showPopUp.bind(this);
        
     }
-
+    showPopUp() {
+ 
+ this.props.navigation.navigate('CycleType');
+}
  
     render() {
  
         return (
           <View style={styles.container}>
-  
-         <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={this.props.navigation.navigate('MyModal')}>
-          <Text>Yes,use this feature</Text>
-        </TouchableHighlight>
-
-
+        <Button title ='Yes, use this feature' onPress = {this.showPopUp}></Button>
       </View>
         )
       }

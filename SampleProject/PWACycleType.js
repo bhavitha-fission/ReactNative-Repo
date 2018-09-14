@@ -9,7 +9,7 @@ export default class PWACycleType extends Component {
        return (
         
         <View style={{ flex: 1 ,flexDirection: 'column', justifyContent: 'flex-end',position:"absolute"}}>
-        <View style={{ height: "100%" ,width: '100%', backgroundColor:"white", justifyContent:"center"}}>
+        <View style={{ height: "100%" ,width: '100%', backgroundColor:"white", justifyContent:"center",borderRadius:50}}>
         <Text style = {{marginTop:10,marginLeft:30}}>In order for shaps's algorithm to work accurately, we'll need to know if your period is perfectly regular</Text>
         <Text style = {{marginTop:60,width:160,justifyContent:"center",textAlign:'center',alignItems:'center',marginLeft:100}}>Is your menstrual cycle EXACTLY the same lenght every month ?</Text>
         <View style = {{marginTop : 70}}>
