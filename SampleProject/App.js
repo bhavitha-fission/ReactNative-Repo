@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet,Image} from 'react-native';
-import { createStackNavigator,createDrawerNavigator,TabNavigator } from 'react-navigation';
+import { createStackNavigator,createDrawerNavigator,TabNavigator,StackNavigator } from 'react-navigation';
 import LoginComponent from './LoginComponent';
 import RegistrationComponent from './RegistrationComponent';
 import HomeComponent from './HomeComponent';
@@ -10,6 +10,7 @@ import AboutUsComponent from './AboutUsComponent';
 import HorizontalScrollView from './HorizontalScrollView';
 import LogoutComponent from './LogoutComponent';
 import WeightIn from './WeightIn';
+import PWACycleType from './PWACycleType';
 
 
 // Tab navigator
@@ -60,6 +61,27 @@ const AppDrawer = createDrawerNavigator({
   }
 })
 
+
+const ModalStack = StackNavigator(
+  {
+   
+    MyModal: {
+      screen: PWACycleType,
+    },
+  },
+  {
+    navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#9370DB',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  },
+  },
+);
+
 // Stack navigator
 const AppNavigator = createStackNavigator({
 
@@ -85,7 +107,9 @@ const AppNavigator = createStackNavigator({
      header:null,
    }
   },
-  
+  CycleType :{
+    screen:ModalStack,
+  },
   ScreenDetails :{
     screen : ScreenDetailsComponent,
     navigationOptions: {
@@ -93,6 +117,10 @@ const AppNavigator = createStackNavigator({
     },
   }
  },
+ {
+  mode: 'modal',
+  headerMode: 'none',
+},
 {
   navigationOptions: {
   headerStyle: {

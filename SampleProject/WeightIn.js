@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Popover from 'react-native-popover-view'
+
 
   import {
     TouchableHighlight,View,Text,StyleSheet
@@ -9,33 +9,20 @@ export default class HambergerIcon extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            isVisible: false
-        }
+       
     }
 
-    showPopover() {
-        this.setState({isVisible: true});
-      }
-     
-      closePopover() {
-        this.setState({isVisible: false});
-      }
-
+ 
     render() {
  
         return (
-            <View style={styles.container}>
-        <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={() => this.showPopover()}>
-          <Text>Press me</Text>
+          <View style={styles.container}>
+  
+         <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={this.props.navigation.navigate('MyModal')}>
+          <Text>Yes,use this feature</Text>
         </TouchableHighlight>
 
-        <Popover
-          isVisible={this.state.isVisible}
-          fromView={this.touchable}
-          onClose={() => this.closePopover()}>
-          <Text>You are awesome. Keep smile!</Text>
-        </Popover>
+
       </View>
         )
       }
