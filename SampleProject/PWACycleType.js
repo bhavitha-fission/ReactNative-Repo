@@ -12,7 +12,7 @@ export default class PWACycleType extends Component {
     }
 goToNextScreen() {
 
-    this.props.navigation.navigate('MyModalTwo');
+    this.props.navigation.navigate('Period_A_Modal');
 }
 
     render()

@@ -4,6 +4,15 @@ import {
   } from 'react-native';
 
 export default class Period_A extends Component {
+
+  constructor(props) {
+    super(props)
+    this.goToNextScreen = this.goToNextScreen.bind(this)
+  }
+
+  goToNextScreen() {
+    this.props.navigation.navigate('Period_B_Modal');
+  }
     render()
     {
        return (
@@ -14,7 +23,7 @@ export default class Period_A extends Component {
         <Text style = {{marginTop:60,width:160,justifyContent:"center",textAlign:'center',alignItems:'center',marginLeft:100}}>Is your menstrual cycle EXACTLY the same lenght every month ?</Text>
         <View style = {{marginTop : 70}}>
 
-<TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={console.log('i')}>
+<TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={this.goToNextScreen}>
   <Text>Yes, I'm on birth control pills and my cycle is always exactly 28days</Text>
 </TouchableHighlight>
  <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={console.log('i')}>
