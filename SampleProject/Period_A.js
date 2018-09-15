@@ -3,18 +3,7 @@ import {
     TouchableHighlight,View,Text,StyleSheet
   } from 'react-native';
 
-export default class PWACycleType extends Component {
-
-    constructor(props) {
-        super(props)
-        this.goToNextScreen = this.goToNextScreen.bind(this)
-        
-    }
-goToNextScreen() {
-
-    this.props.navigation.navigate('MyModalTwo');
-}
-
+export default class Period_A extends Component {
     render()
     {
        return (
@@ -25,18 +14,13 @@ goToNextScreen() {
         <Text style = {{marginTop:60,width:160,justifyContent:"center",textAlign:'center',alignItems:'center',marginLeft:100}}>Is your menstrual cycle EXACTLY the same lenght every month ?</Text>
         <View style = {{marginTop : 70}}>
 
-<TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={this.goToNextScreen}>
+<TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={console.log('i')}>
   <Text>Yes, I'm on birth control pills and my cycle is always exactly 28days</Text>
 </TouchableHighlight>
  <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={console.log('i')}>
   <Text>Yes, I'm not on birth control pills but my cycle is perfetly regular</Text>
 </TouchableHighlight>
-<TouchableHighlight ref={ref => this.touchable = ref} style={styles.button}  onPress={console.log('i')}>
-  <Text>No,my cycle is not perfectly regular</Text>
-</TouchableHighlight>
-<TouchableHighlight ref={ref => this.touchable = ref} style={styles.button}  onPress={console.log('i')}>
-  <Text>I'm not sure about it</Text>
-</TouchableHighlight> 
+ 
 </View>
         </View>
         </View>

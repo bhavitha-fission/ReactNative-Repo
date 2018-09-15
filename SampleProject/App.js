@@ -11,6 +11,7 @@ import HorizontalScrollView from './HorizontalScrollView';
 import LogoutComponent from './LogoutComponent';
 import WeightIn from './WeightIn';
 import PWACycleType from './PWACycleType';
+import Period_A from './Period_A';
 
 
 // Tab navigator
@@ -62,25 +63,15 @@ const AppDrawer = createDrawerNavigator({
 })
 
 
-const ModalStack = StackNavigator(
-  {
+// const ModalStack = StackNavigator(
+//   {
    
-    MyModal: {
-      screen: PWACycleType,
-    },
-  },
-  {
-    navigationOptions: {
-    headerStyle: {
-      backgroundColor: '#9370DB',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-  },
-  },
-);
+//     MyModal: {
+//       screen: PWACycleType,
+//     },
+//   },
+
+// );
 
 // Stack navigator
 const AppNavigator = createStackNavigator({
@@ -108,7 +99,11 @@ const AppNavigator = createStackNavigator({
    }
   },
   CycleType :{
-    screen:ModalStack,
+    screen:PWACycleType,
+    header:null
+  },
+  MyModalTwo:{
+    screen:Period_A,
   },
   ScreenDetails :{
     screen : ScreenDetailsComponent,
@@ -119,7 +114,7 @@ const AppNavigator = createStackNavigator({
  },
  {
   mode: 'modal',
-  headerMode: 'none',
+  
 },
 {
   navigationOptions: {
