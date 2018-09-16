@@ -12,6 +12,8 @@ import LogoutComponent from './LogoutComponent';
 import WeightIn from './WeightIn';
 import PWACycleType from './PWACycleType';
 import Period_A from './Period_A';
+import Period_B from './Period_B';
+import Period_C from './Period_C';
 
 
 // Tab navigator
@@ -102,8 +104,14 @@ const AppNavigator = createStackNavigator({
     screen:PWACycleType,
     header:null
   },
-  MyModalTwo:{
+  Period_A_Modal:{
     screen:Period_A,
+  },
+  Period_B_Modal:{
+    screen:Period_B
+  },
+  Period_C_Modal:{
+    screen:Period_C
   },
   ScreenDetails :{
     screen : ScreenDetailsComponent,

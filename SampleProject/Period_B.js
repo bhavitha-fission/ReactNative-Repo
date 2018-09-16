@@ -10,6 +10,10 @@ export default class Period_B extends Component {
   constructor(props) {
     super(props)
     this.state = {date:"2016-05-15"}
+    this.goToNextScreen = this.goToNextScreen.bind(this);
+  }
+  goToNextScreen() {
+    this.props.navigation.navigate('Period_C_Modal');
   }
   render() {
     return (
