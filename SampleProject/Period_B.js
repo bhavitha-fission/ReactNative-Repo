@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import {
   TouchableHighlight, View, Text, StyleSheet, Dimensions
 } from 'react-native';
+import DatePicker from 'react-native-datepicker';
 
 export default class Period_B extends Component {
+
+
+  constructor(props) {
+    super(props)
+    this.state = {date:"2016-05-15"}
+  }
   render() {
     return (
 
@@ -16,6 +23,18 @@ export default class Period_B extends Component {
             <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={this.goToNextScreen}>
               <Text>Yes, I remember the exact date</Text>
             </TouchableHighlight>
+            <View style = {{alignItems:'center',justifyContent:'center'}}>
+            <DatePicker 
+            style={{ marginVertical: 15, marginBottom: 30 }}
+            mode={"date"}
+            placeholder="Select Date"
+            confirmBtnText={"Confirm"}
+            cancelBtnText={"Cancel"}
+            format={"YYYY-MM-DD"}
+            minDate={this.state.calendarMinDate}
+            onDateChange={(date) => {this.setState({date: date})}}
+          />
+          </View>
             <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={console.log('i')}>
               <Text>No, I'm not 100% sure</Text>
             </TouchableHighlight>
