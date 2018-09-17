@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import {
-  TouchableHighlight, View, Text, StyleSheet, Dimensions
+  TouchableHighlight, View, Text, StyleSheet, Dimensions,
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
+
 
 export default class Period_B extends Component {
 
 
   constructor(props) {
     super(props)
-    this.state = {date:"2016-05-15"}
-    this.goToNextScreen = this.goToNextScreen.bind(this);
+    this.state = {date:"2016-05-15"};
+    
+  this.goToOtherScreen = this.goToOtherScreen.bind(this);
   }
-  goToNextScreen() {
-    this.props.navigation.navigate('Period_C_Modal');
+  goToOtherScreen = (str) => {
+    this.props.navigation.navigate(str);
   }
-  render() {
+render() {
     return (
-
+      <View>
+        
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end', position: "absolute" }}>
         <View style={{ height: "100%", width: '100%', backgroundColor: "white", justifyContent: "center", borderRadius: 50, width: Dimensions.get('window').width }}>
           <Text style={{ marginTop: 40, marginLeft: 30 }}>The first day of your period is the first day that you have full menstrual flow. Spotting doesn't count</Text>
           <Text style={{ marginTop: 40, marginLeft: 30 }}>Do you know when your last period started?</Text>
           <View style={{ marginTop: 70 }}>
 
-            <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={this.goToNextScreen}>
+            <TouchableHighlight  style={styles.button} onPress={ ()=> {this.goToOtherScreen('Period_C_Modal')}}>
               <Text>Yes, I remember the exact date</Text>
             </TouchableHighlight>
             <View style = {{alignItems:'center',justifyContent:'center'}}>
@@ -39,12 +42,13 @@ export default class Period_B extends Component {
             onDateChange={(date) => {this.setState({date: date})}}
           />
           </View>
-            <TouchableHighlight ref={ref => this.touchable = ref} style={styles.button} onPress={console.log('i')}>
+            <TouchableHighlight style={styles.button} onPress={()=> {this.goToOtherScreen('Period_D_Modal')} }>
               <Text>No, I'm not 100% sure</Text>
-            </TouchableHighlight>
+            </TouchableHighlight> 
 
           </View>
         </View>
+      </View>
       </View>
     )
   }

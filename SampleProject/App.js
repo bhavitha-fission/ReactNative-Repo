@@ -14,6 +14,7 @@ import PWACycleType from './PWACycleType';
 import Period_A from './Period_A';
 import Period_B from './Period_B';
 import Period_C from './Period_C';
+import Period_D from './Period_D';
 
 
 // Tab navigator
@@ -102,16 +103,47 @@ const AppNavigator = createStackNavigator({
   },
   CycleType :{
     screen:PWACycleType,
-    header:null
+    header:null,
+    navigationOptions: {
+      title: "",
+      headerLeft: null,
+      gesturesEnabled: false, 
+    
+    },
   },
   Period_A_Modal:{
     screen:Period_A,
+    navigationOptions: {
+      title: "",
+      headerLeft: null,
+      gesturesEnabled: false, 
+    
+    },
   },
   Period_B_Modal:{
-    screen:Period_B
+    screen:Period_B,
+    navigationOptions: {
+      title: "",
+      headerLeft: null,
+      gesturesEnabled: false, 
+    
+    },
   },
   Period_C_Modal:{
-    screen:Period_C
+    screen:Period_C,
+    navigationOptions: {
+      title: "",
+      headerLeft: null,
+    },
+  },
+  Period_D_Modal:{
+    screen:Period_D,
+    navigationOptions: {
+      title: "",
+      headerLeft: null,
+     
+    
+    },
   },
   ScreenDetails :{
     screen : ScreenDetailsComponent,
@@ -121,8 +153,12 @@ const AppNavigator = createStackNavigator({
   }
  },
  {
-  mode: 'modal',
-  
+ 
+ mode: 'modal',
+ cardStyle: {
+   opacity: 1,
+   
+ },
 },
 {
   navigationOptions: {

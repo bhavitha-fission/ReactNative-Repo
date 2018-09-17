@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 
 
-export default class Period_C extends Component {
+export default class Period_D extends Component {
 
 
   constructor(props) {
@@ -18,9 +18,9 @@ export default class Period_C extends Component {
         <View style={{ height: "100%", width: '100%', flex:3, alignItems: "center",
     justifyContent: "center",backgroundColor: "white", borderRadius: 50, width: Dimensions.get('window').width, height: Dimensions.get('window').height }}>
           
-          <Text>{'\n \n \n \n \n \n'}Congratulation!{'\n \n'} </Text>        
-          <Text>Shapa's algorithm is now attuned to your weight fluctuations during your menstrual cycle.{'\n \n'}</Text>
-          <Text>If at anytime you'd like to edit your information,head to the "Period Weight Adjuster" section on your Profile settings.{'\n \n'} </Text>
+          <Text>{'\n \n \n \n \n \n'}No worries!{'\n \n'} </Text>        
+          <Text>We've made it easy to mark your next one{'\n \n'}</Text>
+          <Text>You can do so on the main dashboard underneath your Daily Weigh-In.{'\n \n'} </Text>
           <View style = {{flex:1,alignItems: "center",justifyContent: "center"}}>
           <Text>Swipe down to close</Text>
           </View>
