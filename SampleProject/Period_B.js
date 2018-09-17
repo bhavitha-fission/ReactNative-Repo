@@ -3,7 +3,9 @@ import {
   TouchableHighlight, View, Text, StyleSheet, Dimensions,
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
-
+import Modal from 'react-native-modalbox';
+import Period_C from './Period_C';
+import Period_D from './Period_D';
 
 export default class Period_B extends Component {
 
@@ -13,7 +15,27 @@ export default class Period_B extends Component {
     this.state = {date:"2016-05-15"};
     
   this.goToOtherScreen = this.goToOtherScreen.bind(this);
+  this.state = {
+    isOpen: false,
+    isDisabled: false,
+    swipeToClose: true,
+    sliderValue: 0.3
+  };
+
   }
+
+  onClose() {
+    console.log('Modal just closed');
+  }
+
+  onOpen() {
+    console.log('Modal just openned');
+  }
+
+  onClosingState(state) {
+    console.log('the open/close of the swipeToClose just changed');
+  }
+
   goToOtherScreen = (str) => {
     this.props.navigation.navigate(str);
   }
@@ -27,7 +49,7 @@ render() {
           <Text style={{ marginTop: 40, marginLeft: 30 }}>Do you know when your last period started?</Text>
           <View style={{ marginTop: 70 }}>
 
-            <TouchableHighlight  style={styles.button} onPress={ ()=> {this.goToOtherScreen('Period_C_Modal')}}>
+            <TouchableHighlight  style={styles.button} onPress={() => this.refs.modal1.open()}>
               <Text>Yes, I remember the exact date</Text>
             </TouchableHighlight>
             <View style = {{alignItems:'center',justifyContent:'center'}}>
@@ -42,11 +64,17 @@ render() {
             onDateChange={(date) => {this.setState({date: date})}}
           />
           </View>
-            <TouchableHighlight style={styles.button} onPress={()=> {this.goToOtherScreen('Period_D_Modal')} }>
+            <TouchableHighlight style={styles.button} onPress={() => this.refs.modal2.open()}>
               <Text>No, I'm not 100% sure</Text>
             </TouchableHighlight> 
 
           </View>
+          <Modal style={[styles.modal]} position={"bottom"} ref={"modal1"}>
+          <Period_C {...this.props} />
+          </Modal>
+          <Modal style={[styles.modal]} position={"bottom"} ref={"modal2"}>
+          <Period_D {...this.props} />
+          </Modal>
         </View>
       </View>
       </View>
@@ -66,5 +94,10 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: 'column',
     justifyContent: 'space-between'
-  }
+  },
+  modal: {
+    height: Dimensions.get('window').height,
+    borderRadius:Dimensions.get('window').width/2,
+   
+  },
 });

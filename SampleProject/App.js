@@ -65,18 +65,6 @@ const AppDrawer = createDrawerNavigator({
   }
 })
 
-
-// const ModalStack = StackNavigator(
-//   {
-   
-//     MyModal: {
-//       screen: PWACycleType,
-//     },
-//   },
-
-// );
-
-// Stack navigator
 const AppNavigator = createStackNavigator({
 
   Login: {
