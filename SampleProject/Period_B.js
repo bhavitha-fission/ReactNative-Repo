@@ -15,6 +15,7 @@ export default class Period_B extends Component {
     this.state = {date:"2016-05-15"};
     
   this.goToOtherScreen = this.goToOtherScreen.bind(this);
+  this.goToNextScreen = this.goToNextScreen.bind(this);
   this.state = {
     isOpen: false,
     isDisabled: false,
@@ -24,21 +25,17 @@ export default class Period_B extends Component {
 
   }
 
-  onClose() {
-    console.log('Modal just closed');
-  }
-
-  onOpen() {
-    console.log('Modal just openned');
-  }
-
-  onClosingState(state) {
-    console.log('the open/close of the swipeToClose just changed');
-  }
 
   goToOtherScreen = (str) => {
     this.props.navigation.navigate(str);
+    
   }
+  goToNextScreen() {
+  
+    this.props.btnClickEvent();
+   
+  }
+
 render() {
     return (
       <View>
@@ -49,7 +46,7 @@ render() {
           <Text style={{ marginTop: 40, marginLeft: 30 }}>Do you know when your last period started?</Text>
           <View style={{ marginTop: 70 }}>
 
-            <TouchableHighlight  style={styles.button} onPress={() => this.refs.modal1.open()}>
+            <TouchableHighlight  style={styles.button} onPress={this.goToNextScreen}>
               <Text>Yes, I remember the exact date</Text>
             </TouchableHighlight>
             <View style = {{alignItems:'center',justifyContent:'center'}}>
@@ -64,17 +61,12 @@ render() {
             onDateChange={(date) => {this.setState({date: date})}}
           />
           </View>
-            <TouchableHighlight style={styles.button} onPress={() => this.refs.modal2.open()}>
+            <TouchableHighlight style={styles.button} onPress={this.goToNextScreen}>
               <Text>No, I'm not 100% sure</Text>
             </TouchableHighlight> 
 
           </View>
-          <Modal style={[styles.modal]} position={"bottom"} ref={"modal1"}>
-          <Period_C {...this.props} />
-          </Modal>
-          <Modal style={[styles.modal]} position={"bottom"} ref={"modal2"}>
-          <Period_D {...this.props} />
-          </Modal>
+
         </View>
       </View>
       </View>

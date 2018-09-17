@@ -19,7 +19,9 @@ export default class Period_A extends Component {
   }
 
   goToNextScreen() {
-    this.props.navigation.navigate('Period_B_Modal');
+    //this.props.navigation.navigate('Period_B_Modal');
+    this.props.btnClickEvent();
+   
   }
 
   onClose() {
@@ -44,7 +46,7 @@ export default class Period_A extends Component {
         <Text style = {{marginTop:60,width:160,justifyContent:"center",textAlign:'center',alignItems:'center',marginLeft:100}}>Is your menstrual cycle EXACTLY the same lenght every month ?</Text>
         <View style = {{marginTop : 70}}>
       
-<TouchableHighlight  style={styles.button} onPress={() => this.refs.modal.open()}>
+<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen}>
   <Text>Yes, I'm on birth control pills and my cycle is always exactly 28days</Text>
 </TouchableHighlight>
  <TouchableHighlight style={styles.button} onPress={this.goToNextScreen}>
@@ -58,9 +60,9 @@ export default class Period_A extends Component {
 </TouchableHighlight> 
 
  </View>
- <Modal style={[styles.modal]} position={"bottom"} ref={"modal"}>
+ {/* <Modal style={[styles.modal]} position={"bottom"} ref={"modal"}>
           <Period_B {...this.props} />
-          </Modal>
+          </Modal> */}
         </View>
         </View>
 
