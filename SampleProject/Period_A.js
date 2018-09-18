@@ -9,7 +9,7 @@ export default class Period_A extends Component {
 
   constructor(props) {
     super(props)
-    this.goToNextScreen = this.goToNextScreen.bind(this)
+
     this.state = {
       isOpen: false,
       isDisabled: false,
@@ -19,7 +19,7 @@ export default class Period_A extends Component {
   }
 
   goToNextScreen() {
-    //this.props.navigation.navigate('Period_B_Modal');
+   
     this.props.btnClickEvent();
    
   }
@@ -46,28 +46,22 @@ export default class Period_A extends Component {
         <Text style = {{marginTop:60,width:160,justifyContent:"center",textAlign:'center',alignItems:'center',marginLeft:100}}>Is your menstrual cycle EXACTLY the same lenght every month ?</Text>
         <View style = {{marginTop : 70}}>
       
-<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen}>
+<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen.bind(this)}>
   <Text>Yes, I'm on birth control pills and my cycle is always exactly 28days</Text>
 </TouchableHighlight>
- <TouchableHighlight style={styles.button} onPress={this.goToNextScreen}>
+ <TouchableHighlight style={styles.button} onPress={this.goToNextScreen.bind(this)}>
   <Text>Yes, I'm not on birth control pills but my cycle is perfetly regular</Text>
 </TouchableHighlight>
-<TouchableHighlight  style={styles.button}  onPress={this.goToNextScreen}>
+<TouchableHighlight  style={styles.button}  onPress={this.goToNextScreen.bind(this)}>
   <Text>No,my cycle is not perfectly regular</Text>
 </TouchableHighlight>
-<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen}>
+<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen.bind(this)}>
   <Text>I'm not sure about it</Text>
 </TouchableHighlight> 
 
  </View>
- {/* <Modal style={[styles.modal]} position={"bottom"} ref={"modal"}>
-          <Period_B {...this.props} />
-          </Modal> */}
         </View>
         </View>
-
-    
-
        )
     }
 }

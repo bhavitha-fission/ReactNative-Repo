@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {
-  TouchableHighlight, View, Text, StyleSheet, Dimensions,
+  TouchableOpacity, View, Text, StyleSheet, Dimensions,Button
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
-import Modal from 'react-native-modalbox';
-import Period_C from './Period_C';
-import Period_D from './Period_D';
+
 
 export default class Period_B extends Component {
 
@@ -14,8 +12,6 @@ export default class Period_B extends Component {
     super(props)
     this.state = {date:"2016-05-15"};
     
-  this.goToOtherScreen = this.goToOtherScreen.bind(this);
-  this.goToNextScreen = this.goToNextScreen.bind(this);
   this.state = {
     isOpen: false,
     isDisabled: false,
@@ -25,14 +21,9 @@ export default class Period_B extends Component {
 
   }
 
+  goToNextScreen(arg) {
 
-  goToOtherScreen = (str) => {
-    this.props.navigation.navigate(str);
-    
-  }
-  goToNextScreen() {
-  
-    this.props.btnClickEvent();
+  this.props.btnClickEvent(arg);
    
   }
 
@@ -46,9 +37,11 @@ render() {
           <Text style={{ marginTop: 40, marginLeft: 30 }}>Do you know when your last period started?</Text>
           <View style={{ marginTop: 70 }}>
 
-            <TouchableHighlight  style={styles.button} onPress={this.goToNextScreen}>
+            <TouchableOpacity  style={styles.button} onPress={this.goToNextScreen.bind(this,'yes')}>
               <Text>Yes, I remember the exact date</Text>
-            </TouchableHighlight>
+            </TouchableOpacity>
+           
+
             <View style = {{alignItems:'center',justifyContent:'center'}}>
             <DatePicker 
             style={{ marginVertical: 15, marginBottom: 30 }}
@@ -61,9 +54,9 @@ render() {
             onDateChange={(date) => {this.setState({date: date})}}
           />
           </View>
-            <TouchableHighlight style={styles.button} onPress={this.goToNextScreen}>
+            <TouchableOpacity style={styles.button} onPress={this.goToNextScreen.bind(this,'no')}>
               <Text>No, I'm not 100% sure</Text>
-            </TouchableHighlight> 
+            </TouchableOpacity>
 
           </View>
 

@@ -12,6 +12,10 @@ export default class Period_C extends Component {
     this.state = {date:"2016-05-15"}
   }
 
+  componentWillMount() {
+    this.props.generateEvent(); 
+  }
+
   render() {
     return (
 

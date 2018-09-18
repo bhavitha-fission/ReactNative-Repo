@@ -17,11 +17,18 @@ export default class WeightIn extends Component {
           isOpen: false,
           isDisabled: false,
           swipeToClose: true,
-          sliderValue: 0.3
+          sliderValue: 0.3,
+          btnTitle :'Yes, use this feature',
+          contentChange:{
+            'line1':'Some people can gain around 3-5 pounds during their period.',
+            'line2':'Fortunately,Shapa adjusts for this weight gain to give a more accurate reflection of your health.Do you have a menstrual cycle and would you like to use this feature?'
+            
+          }
         };
        this.changeModal  = this.changeModal.bind(this);
-       this.changeModal2  = this.changeModal2.bind(this);
+      this.changeModal2  = this.changeModal2.bind(this);
        this.goToNextScreen  = this.goToNextScreen.bind(this);
+      this.changeContent = this.changeContent.bind(this);  
      
     }
 
@@ -38,20 +45,31 @@ export default class WeightIn extends Component {
       console.log('the open/close of the swipeToClose just changed');
     }
     changeModal() {
-    
       this.refs.modal1.close()
       this.refs.modal2.open()
     }
 
-    changeModal2(){
+    changeModal2(arg){
+      if(arg === 'yes') {
       this.refs.modal2.close()
       this.refs.modal3.open()
+      }
+      else {
+        this.refs.modal2.close()
+      this.refs.modal4.open()
+      }
     }
 
      goToNextScreen() {
       this.refs.modal1.open()
     }
-
+    async changeContent() {
+     await this.setState({btnTitle: 'Mark my period'});
+     let getContentData = this.state.contentChange;
+     getContentData.line1 = 'You expressed your interest in having Shapa adjust your weight fluctuations during that time of the month.';
+     getContentData.line2 = 'Did you have or are you currently on you period?'
+     await this.setState({contentChange: Object.assign({},getContentData)});
+    }
    
     render() {
  
@@ -59,13 +77,11 @@ export default class WeightIn extends Component {
           <View style = {{backgroundColor:'white'}}>
              <HeaderComponent {...this.props} />
           <View style = {{backgroundColor:'white'}}>
-          <Text style = {styles.text}>Some people can gain around 3-5 pounds during their period.{'\n'}</Text>
-            <Text style = {styles.text}> Fortunately,Shapa adjusts for this weight gain to give a more
-          accurate reflection of your health.Do you have a menstrual cycle and would you like to use this feature?
-         </Text>
+         <Text style = {styles.text}>{this.state.contentChange.line1}{'\n'}</Text>
+          <Text style = {styles.text}>{this.state.contentChange.line2}</Text>
           <View style = {styles.buttonView}>
         < TouchableOpacity  onPress = {this.goToNextScreen}>
-         <Text style = {{marginTop:8,textAlign: "center",color:'white', fontSize: 20,}}>'Yes, use this feature'</Text>
+         <Text style = {{marginTop:8,textAlign: "center",color:'white', fontSize: 20,}}>{this.state.btnTitle}</Text>
          </TouchableOpacity>
          </View> 
   
@@ -73,13 +89,13 @@ export default class WeightIn extends Component {
           <Period_A {...this.props} btnClickEvent = {this.changeModal} />
           </Modal>
           <Modal style={[styles.modal]} position={"bottom"} ref={"modal2"}>
-          <Period_B {...this.props} btnClickEvent = {this.changeModal2} />
+          <Period_B {...this.props} btnClickEvent = {(e) => this.changeModal2(e)} />
           </Modal>
           <Modal style={[styles.modal]} position={"bottom"} ref={"modal3"}>
-          <Period_C {...this.props} btnClickEvent = {this.changeModal} />
+          <Period_C {...this.props} generateEvent = {this.changeContent}/>
           </Modal>
           <Modal style={[styles.modal]} position={"bottom"} ref={"modal4"}>
-          <Period_D {...this.props} btnClickEvent = {this.changeModal} />
+          <Period_D {...this.props} generateEvent = {this.changeContent}/>
           </Modal>
      </View>
       </View>
