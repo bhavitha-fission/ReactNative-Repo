@@ -8,6 +8,8 @@ import Period_A from './Period_A';
 import Period_B from './Period_B';
 import Period_C from './Period_C';
 import Period_D from './Period_D';
+import Period_F from './Period_F';
+
 
 export default class WeightIn extends Component {
 
@@ -18,6 +20,7 @@ export default class WeightIn extends Component {
           isDisabled: false,
           swipeToClose: true,
           sliderValue: 0.3,
+          bool:false,
           btnTitle :'Yes, use this feature',
           contentChange:{
             'line1':'Some people can gain around 3-5 pounds during their period.',
@@ -28,7 +31,8 @@ export default class WeightIn extends Component {
        this.changeModal  = this.changeModal.bind(this);
       this.changeModal2  = this.changeModal2.bind(this);
        this.goToNextScreen  = this.goToNextScreen.bind(this);
-      this.changeContent = this.changeContent.bind(this);  
+      this.changeContent = this.changeContent.bind(this); 
+      this.lastScreen = this.lastScreen.bind(this); 
      
     }
 
@@ -50,21 +54,35 @@ export default class WeightIn extends Component {
     }
 
     changeModal2(arg){
+
       if(arg === 'yes') {
       this.refs.modal2.close()
       this.refs.modal3.open()
       }
       else {
         this.refs.modal2.close()
-      this.refs.modal4.open()
+        this.refs.modal4.open()
       }
     }
 
-     goToNextScreen() {
-      this.refs.modal1.open()
+    lastScreen() {
+      this.refs.modal5.close()
+      this.refs.modal3.open()
     }
+
+    goToNextScreen() {
+    
+      if(this.state.bool){
+        this.refs.modal5.open()
+      }
+      else {
+        this.refs.modal1.open()
+      }
+    }
+
     async changeContent() {
      await this.setState({btnTitle: 'Mark my period'});
+     this.setState({bool:true})
      let getContentData = this.state.contentChange;
      getContentData.line1 = 'You expressed your interest in having Shapa adjust your weight fluctuations during that time of the month.';
      getContentData.line2 = 'Did you have or are you currently on you period?'
@@ -96,6 +114,9 @@ export default class WeightIn extends Component {
           </Modal>
           <Modal style={[styles.modal]} position={"bottom"} ref={"modal4"}>
           <Period_D {...this.props} generateEvent = {this.changeContent}/>
+          </Modal>
+          <Modal style={[styles.modal]} position={"bottom"} ref={"modal5"}>
+          <Period_F {...this.props}  nextScreen = {this.lastScreen}/>
           </Modal>
      </View>
       </View>
