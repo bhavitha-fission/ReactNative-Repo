@@ -32,9 +32,9 @@ render() {
   
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end', position: "absolute" }}>
         <View style={{ height: "100%", width: '100%', backgroundColor: "white", justifyContent: "center",alignItems:'center', borderRadius: 50, width: Dimensions.get('window').width }}>
-          <Text style={{ marginTop: 40, marginLeft: 30, fontFamily: "Helvetica Neue",textAlign:'center' }}>What was the start date of your most recent period ? </Text>
+          <Text style={{ marginTop: 40,fontFamily: "Helvetica Neue",textAlign:'center',fontSize:15 }}>What was the start date of {'\n'} your most recent period ? </Text>
          
-          <View style={{ marginTop: 70 }}>
+          <View style={{ marginTop: 50 }}>
 
             <View style = {{alignItems:'center',justifyContent:'center'}}>
             <DatePicker 
