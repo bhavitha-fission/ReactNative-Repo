@@ -31,17 +31,16 @@ render() {
     return (
       <View>
         
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end', position: "absolute" }}>
-        <View style={{ height: "100%", width: '100%', backgroundColor: "white", justifyContent: "center", borderRadius: 50, width: Dimensions.get('window').width }}>
+      <View style={{ flex: 1, flexDirection: 'column', position: "absolute" }}>
+        <View style={{ height: "100%", width: '100%', backgroundColor: "white",alignItems:'center',justifyContent: "center", borderRadius: 50, width: Dimensions.get('window').width }}>
           <Text style={{ marginTop: 40, marginLeft: 30 }}>The first day of your period is the first day that you have full menstrual flow. Spotting doesn't count</Text>
-          <Text style={{ marginTop: 40, marginLeft: 30 }}>Do you know when your last period started?</Text>
-          <View style={{ marginTop: 70 }}>
+          <Text style={{ marginTop: 40}}>Do you know when your {'\n'} last period started?</Text>
+          <View style={{ marginTop: 60 }}>
 
             <TouchableOpacity  style={styles.button} onPress={this.goToNextScreen.bind(this,'yes')}>
               <Text>Yes, I remember the exact date</Text>
             </TouchableOpacity>
-           
-
+          
             <View style = {{alignItems:'center',justifyContent:'center'}}>
             <DatePicker 
             style={{ marginVertical: 15, marginBottom: 30 }}

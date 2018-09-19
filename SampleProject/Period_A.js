@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import {
     TouchableHighlight,View,Text,StyleSheet,Dimensions
   } from 'react-native';
-import Modal from 'react-native-modalbox';
-import Period_B from './Period_B';
-
+  
 export default class Period_A extends Component {
 
   constructor(props) {
@@ -18,9 +16,11 @@ export default class Period_A extends Component {
     };
   }
 
-  goToNextScreen() {
+  goToNextScreen(arg) {
    
-    this.props.btnClickEvent();
+    this.props.btnClickEvent(arg);
+   
+    
    
   }
 
@@ -46,16 +46,16 @@ export default class Period_A extends Component {
         <Text style = {{marginTop:60,width:160,justifyContent:"center",textAlign:'center',alignItems:'center',marginLeft:100}}>Is your menstrual cycle EXACTLY the same lenght every month ?</Text>
         <View style = {{marginTop : 70}}>
       
-<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen.bind(this)}>
+<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen.bind(this,'btn1')}>
   <Text>Yes, I'm on birth control pills and my cycle is always exactly 28days</Text>
 </TouchableHighlight>
- <TouchableHighlight style={styles.button} onPress={this.goToNextScreen.bind(this)}>
+ <TouchableHighlight style={styles.button} onPress={this.goToNextScreen.bind(this,'btn2')}>
   <Text>Yes, I'm not on birth control pills but my cycle is perfetly regular</Text>
 </TouchableHighlight>
-<TouchableHighlight  style={styles.button}  onPress={this.goToNextScreen.bind(this)}>
+<TouchableHighlight  style={styles.button}  onPress={this.goToNextScreen.bind(this,'btn3')}>
   <Text>No,my cycle is not perfectly regular</Text>
 </TouchableHighlight>
-<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen.bind(this)}>
+<TouchableHighlight  style={styles.button} onPress={this.goToNextScreen.bind(this,'btn4')}>
   <Text>I'm not sure about it</Text>
 </TouchableHighlight> 
 
